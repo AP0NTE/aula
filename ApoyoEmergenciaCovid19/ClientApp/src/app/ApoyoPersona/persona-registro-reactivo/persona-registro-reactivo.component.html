@@ -1,0 +1,83 @@
+<div class="signup-form">
+  <form method="post">
+    <div class="form-header">
+      <h2>Registro Persona</h2>
+      <p>Completar cada campo</p>
+    </div>
+
+    <form [formGroup]="formGroup">
+
+      <div class="form-group">
+        <label>Identificacion</label>
+        <input type="text" name="identificacionP" formControlName="identificacionP" class="form-control"
+          [ngClass]="{ 'is-invalid':  control.identificacionP.errors}" />
+        <div *ngIf="control.identificacionP.errors" class="invalid-feedback">
+          <div *ngIf="control.identificacionP.errors.required">Se requiere la identificacion de la persona </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Nombres</label>
+        <input type="text" name="nombresP" formControlName="nombresP" class="form-control"
+          [ngClass]="{ 'is-invalid':  control.nombresP.errors}" />
+        <div *ngIf="control.nombresP.errors" class="invalid-feedback">
+          <div *ngIf="control.nombresP.errors.required">Se requiere el nombre de la producto </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Apellidos</label>
+        <input type="text" name="apellidosP" formControlName="apellidosP" class="form-control"
+          [ngClass]="{ 'is-invalid':  control.apellidosP.errors}" />
+        <div *ngIf="control.apellidosP.errors" class="invalid-feedback">
+          <div *ngIf="control.apellidosP.errors.required">Se requiere los apellidos de la persona </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Sexo</label>
+        <input type="text" name="sexoP" formControlName="sexoP" class="form-control"
+          [ngClass]="{ 'is-invalid':  control.sexoP.errors}" />
+        <div *ngIf="control.sexoP.errors" class="invalid-feedback">
+          <div *ngIf="control.sexoP.errors.required">Se requiere el sexo de la persona </div>
+          <div *ngIf="control.sexoP.errors.validSexo">{{control.sexoP.errors.messageSexo}}</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Edad</label>
+        <input type="number" name="edadP" formControlName="edadP" class="form-control"
+          [ngClass]="{ 'is-invalid':  control.edadP.errors}" />
+        <div *ngIf="control.edadP.errors" class="invalid-feedback">
+          <div *ngIf="control.edadP.errors.required">Se requiere la edad de la persona </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Departamento</label>
+        <input type="text" name="departamentoP" formControlName="departamentoP" class="form-control"
+          [ngClass]="{ 'is-invalid':  control.departamentoP.errors}" />
+        <div *ngIf="control.departamentoP.errors" class="invalid-feedback">
+          <div *ngIf="control.departamentoP.errors.required">Se requiere el departamento de la persona </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Ciudad</label>
+        <input type="text" name="ciudadP" formControlName="ciudadP" class="form-control"
+          [ngClass]="{ 'is-invalid':  control.ciudadP.errors}" />
+        <div *ngIf="control.ciudadP.errors" class="invalid-feedback">
+          <div *ngIf="control.ciudadP.errors.required">Se requiere la ciudad de la persona </div>
+        </div>
+      </div>
+
+      <div class="button">
+        <button type="button" class="btn btn-primary btn-block btn-lg" (click)="onSubmit()"
+          [disabled]="formGroup.invalid">Registrar</button>
+        <button type="button" class="btn btn-primary btn-block btn-lg" type="reset">Limpiar Formulario</button>
+      </div>
+
+    </form>
+
+  </form>
+</div>

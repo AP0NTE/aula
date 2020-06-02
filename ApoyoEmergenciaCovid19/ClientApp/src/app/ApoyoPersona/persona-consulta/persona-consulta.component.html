@@ -1,0 +1,47 @@
+<div align='center'>
+    <h2>Consulta De Personas</h2>
+    </div>
+    
+    <div align='center'>
+        <div class="col-6">
+          <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Buscar por nombre">
+        </div>
+      </div>
+    
+      <hr/>
+      <div align='center'>
+      <h4><a class="badge badge-success" [routerLink]="['/personaRegistroReactivo']">Registrar nueva persona</a></h4>
+      </div>
+      <hr/>
+      
+      <table class="table table-striped" *ngIf='personas && personas.length'>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">IDENTIFICACION</th>
+            <th scope="col">NOMBRES</th>
+            <th scope="col">APELLIDOS</th>
+            <th scope="col">SEXO</th>
+            <th scope="col">EDAD</th>
+            <th scope="col">DEPARTAMENTO</th>
+            <th scope="col">CIUDAD</th>
+            <th scope="col">APOYO</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas|filtroPersona:searchText; index as i ">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ persona.identificacionP }} </td>
+            <td>{{ persona.nombresP }}</td>
+            <td>{{ persona.apellidosP }}</td>
+            <td>{{ persona.sexoP }}</td>
+            <td>{{ persona.edadP }}</td>
+            <td>{{ persona.departamentoP }}</td>
+            <td>{{ persona.ciudadP }}</td>
+            <td>{{ persona.valorAcumuladoApoyo}}</td>
+            <td><button class="btn btn-success btn-sm" (click)="apoyo(persona.identificacionP)" routerLink="/apoyoRegistro" >Apoyo</button></td>
+      
+          </tr>
+        </tbody>
+      </table>
